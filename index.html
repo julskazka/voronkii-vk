@@ -3,20 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>My Vibe App</title>
+  <title>VK Воронка — Интерактивная карта</title>
 
-  <!--
-    🔒 Content Security Policy — разрешаем скрипты только с известных CDN.
-    При добавлении нового CDN — добавь его домен в script-src.
-    При подключении Notibot Bridge добавь: notibot.ru
-  -->
+  <!-- Content Security Policy -->
   <meta http-equiv="Content-Security-Policy"
         content="
           default-src 'self';
           script-src  'self' 'unsafe-inline'
                       https://cdn.tailwindcss.com
                       https://unpkg.com
-                      https://fonts.googleapis.com;
+                      https://fonts.googleapis.com
+                      https://cdn.jsdelivr.net;
           style-src   'self' 'unsafe-inline'
                       https://fonts.googleapis.com
                       https://fonts.gstatic.com;
@@ -26,10 +23,10 @@
           connect-src 'self' https:;
         " />
 
-  <!-- Google Fonts: Inter -->
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -37,22 +34,20 @@
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
-  <!-- Стили проекта -->
-  <link rel="stylesheet" href="./css/styles.css" />
+  <!-- Mermaid JS for Interactive Diagramming -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 
-  <!--
-    💡 Notibot Bridge подключается здесь если нужна интеграция с Notibot.
-    Используй скилл "Notibot Bridge" — агент добавит строку ниже:
-    <script src="./js/notibot-bridge.js"></script>
-  -->
+  <!-- Стили проекта (сброс кэша v333333) -->
+  <link rel="stylesheet" href="./css/styles.css?v=333333" />
 </head>
-<body>
+<body class="bg-[#0f172a] text-slate-100 antialiased selection:bg-[#0077ff] selection:text-white min-h-screen">
 
   <!-- Корневой элемент приложения -->
-  <div id="app"></div>
+  <div id="app" class="min-h-screen flex flex-col"></div>
 
-  <!-- Точка входа (ES Module) -->
-  <script type="module" src="./js/app.js"></script>
+  <!-- Точка входа (ES Module сброс кэша v333333) -->
+  <script type="module" src="./js/app.js?v=333333"></script>
 
 </body>
 </html>
+
