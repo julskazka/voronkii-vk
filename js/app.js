@@ -434,27 +434,27 @@ function openNodeModal(nodeId) {
  * Настройка взаимодействия со схемой Mermaid
  */
 function setupDiagramInteractivity() {
-  let zoomLevel = 1.15; // По умолчанию крупнее
+  let zoomLevel = 1.6; // Крупный базовый масштаб
   const viewport = document.getElementById('diagram-viewport');
   if (viewport) viewport.style.transform = `scale(${zoomLevel})`;
   
   document.getElementById('btn-zoom-in')?.addEventListener('click', () => {
-    if (zoomLevel < 2.2) {
-      zoomLevel += 0.2;
+    if (zoomLevel < 2.5) {
+      zoomLevel += 0.25;
       viewport.style.transform = `scale(${zoomLevel})`;
     }
   });
 
   document.getElementById('btn-zoom-out')?.addEventListener('click', () => {
-    if (zoomLevel > 0.7) {
-      zoomLevel -= 0.2;
+    if (zoomLevel > 0.8) {
+      zoomLevel -= 0.25;
       viewport.style.transform = `scale(${zoomLevel})`;
     }
   });
 
   document.getElementById('btn-reset-zoom')?.addEventListener('click', () => {
-    zoomLevel = 1.15;
-    viewport.style.transform = `scale(1.15)`;
+    zoomLevel = 1.6;
+    viewport.style.transform = `scale(1.6)`;
   });
 
   const attemptBind = () => {
