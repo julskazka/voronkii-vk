@@ -160,6 +160,7 @@ const funnelData = {
   'I': {
     title: 'Продажа',
     subtitle: 'Конверсия & Оплата',
+    category: 'Конверсия',
     color: '#ef4444',
     badge: 'Финальный этап',
     icon: 'shopping-bag',
@@ -170,7 +171,7 @@ const funnelData = {
 };
 
 /**
- * Рендер интерфейса воронки с помощью чистых аккуратных HTML-карточек
+ * Рендер интерфейса воронки
  */
 function renderDashboard() {
   const appEl = document.getElementById('app');
@@ -178,63 +179,63 @@ function renderDashboard() {
   appEl.innerHTML = `
     <!-- Header -->
     <header class="border-b border-white/10 bg-[#0d1322]/90 backdrop-blur-md shrink-0">
-      <div class="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
-        <div class="flex items-center space-x-3">
-          <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-600 to-vk-blue p-0.5 flex items-center justify-center shadow">
-            <div class="w-full h-full bg-[#090d16] rounded-[6px] flex items-center justify-center">
-              <i data-lucide="workflow" class="w-4 h-4 text-indigo-400"></i>
+      <div class="max-w-6xl mx-auto px-4 h-12 flex items-center justify-between">
+        <div class="flex items-center space-x-2.5">
+          <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-indigo-600 to-vk-blue p-0.5 flex items-center justify-center shadow">
+            <div class="w-full h-full bg-[#090d16] rounded-[5px] flex items-center justify-center">
+              <i data-lucide="workflow" class="w-3.5 h-3.5 text-indigo-400"></i>
             </div>
           </div>
           <div class="flex items-center gap-2">
-            <h1 class="text-base font-extrabold tracking-tight text-white font-heading">VK-ВОРОНКА</h1>
-            <span class="px-2.5 py-0.5 text-[10px] font-bold tracking-wide uppercase bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 rounded-full">Neat Pixel-Perfect Board</span>
+            <h1 class="text-sm font-extrabold tracking-tight text-white font-heading">VK-ВОРОНКА</h1>
+            <span class="px-2 py-0.5 text-[9px] font-bold tracking-wide uppercase bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 rounded-full">Pro SaaS Map</span>
           </div>
         </div>
 
         <div class="text-xs text-slate-400 flex items-center gap-2">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>Нажмите на любой блок для просмотра пояснений</span>
+          <span>Нажмите на любой блок для пояснений</span>
         </div>
       </div>
     </header>
 
     <!-- Main Board Workspace -->
-    <main class="flex-1 max-w-6xl w-full mx-auto px-4 py-6 flex flex-col items-center justify-start overflow-y-auto">
+    <main class="flex-1 max-w-5xl w-full mx-auto px-4 py-5 flex flex-col items-center justify-start overflow-y-auto">
       
       <!-- Legend -->
-      <div class="w-full max-w-4xl mb-6 flex flex-wrap items-center justify-between gap-3 p-3 rounded-2xl glass-card text-xs">
-        <div class="flex items-center gap-2 font-bold uppercase text-slate-300 tracking-wider">
-          <i data-lucide="layers" class="w-4 h-4 text-indigo-400"></i>
+      <div class="w-full max-w-3xl mb-5 flex flex-wrap items-center justify-between gap-2 p-2.5 rounded-xl glass-card text-xs">
+        <div class="flex items-center gap-1.5 font-bold uppercase text-slate-300 tracking-wider">
+          <i data-lucide="layers" class="w-3.5 h-3.5 text-indigo-400"></i>
           <span>Легенда:</span>
         </div>
         <div class="flex flex-wrap items-center gap-2">
-          <span class="px-3 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-semibold flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Трафик
+          <span class="px-2.5 py-0.5 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-semibold flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Трафик
           </span>
-          <span class="px-3 py-1 rounded-lg bg-blue-500/10 text-blue-400 border border-blue-500/20 font-semibold flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-blue-400"></span> VK Оболочка
+          <span class="px-2.5 py-0.5 rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20 font-semibold flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span> VK Оболочка
           </span>
-          <span class="px-3 py-1 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20 font-semibold flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-purple-400"></span> Бот / Ядро
+          <span class="px-2.5 py-0.5 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20 font-semibold flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span> Бот / Ядро
           </span>
-          <span class="px-3 py-1 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20 font-semibold flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-amber-400"></span> Сегментация
+          <span class="px-2.5 py-0.5 rounded-md bg-amber-500/10 text-amber-400 border border-amber-500/20 font-semibold flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Сегментация
           </span>
-          <span class="px-3 py-1 rounded-lg bg-rose-500/10 text-rose-400 border border-rose-500/30 font-semibold flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-rose-500"></span> Продажи
+          <span class="px-2.5 py-0.5 rounded-md bg-rose-500/10 text-rose-400 border border-rose-500/30 font-semibold flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span> Продажи
           </span>
         </div>
       </div>
 
       <!-- Funnel Board Flow -->
-      <div class="w-full max-w-4xl flex flex-col items-center gap-5 relative py-2">
+      <div class="w-full max-w-3xl flex flex-col items-center gap-4 relative py-1">
         
         <!-- LEVEL 1: Источники Трафика Subgraph Group -->
-        <div class="w-full rounded-3xl p-5 border border-emerald-500/20 bg-emerald-950/10 backdrop-blur-md relative">
-          <span class="absolute -top-3 left-6 px-3 py-0.5 text-xs font-black uppercase tracking-widest bg-[#090d16] text-emerald-400 border border-emerald-500/30 rounded-md">
+        <div class="w-full rounded-2xl p-4 border border-emerald-500/20 bg-emerald-950/10 backdrop-blur-md relative">
+          <span class="absolute -top-2.5 left-5 px-2.5 py-0.5 text-[11px] font-black uppercase tracking-widest bg-[#090d16] text-emerald-400 border border-emerald-500/30 rounded-md">
             Источники трафика
           </span>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
             ${renderCard('T1')}
             ${renderCard('T2')}
             ${renderCard('T3')}
@@ -243,19 +244,19 @@ function renderDashboard() {
         </div>
 
         <!-- Arrow down -->
-        <div class="arrow-down"><i data-lucide="arrow-down" class="w-5 h-5 text-emerald-400"></i></div>
+        <div class="arrow-down"><i data-lucide="arrow-down" class="w-4 h-4 text-emerald-400"></i></div>
 
         <!-- LEVEL 2: Трафик -->
-        <div class="w-full sm:w-72">
+        <div class="w-full sm:w-64">
           ${renderCard('A')}
         </div>
 
         <!-- Arrow down -->
-        <div class="arrow-down"><i data-lucide="arrow-down" class="w-5 h-5 text-blue-400"></i></div>
+        <div class="arrow-down"><i data-lucide="arrow-down" class="w-4 h-4 text-blue-400"></i></div>
 
         <!-- LEVEL 3: VK система Subgraph Group -->
-        <div class="w-full max-w-md rounded-3xl p-5 border border-blue-500/20 bg-blue-950/10 backdrop-blur-md relative">
-          <span class="absolute -top-3 left-6 px-3 py-0.5 text-xs font-black uppercase tracking-widest bg-[#090d16] text-blue-400 border border-blue-500/30 rounded-md">
+        <div class="w-full max-w-sm rounded-2xl p-4 border border-blue-500/20 bg-blue-950/10 backdrop-blur-md relative">
+          <span class="absolute -top-2.5 left-5 px-2.5 py-0.5 text-[11px] font-black uppercase tracking-widest bg-[#090d16] text-blue-400 border border-blue-500/30 rounded-md">
             VK система
           </span>
           <div class="w-full">
@@ -264,69 +265,69 @@ function renderDashboard() {
         </div>
 
         <!-- Arrow down -->
-        <div class="arrow-down"><i data-lucide="arrow-down" class="w-5 h-5 text-amber-400"></i></div>
+        <div class="arrow-down"><i data-lucide="arrow-down" class="w-4 h-4 text-amber-400"></i></div>
 
         <!-- LEVEL 4: Вход (Развилка) -->
-        <div class="w-full sm:w-64">
+        <div class="w-full sm:w-56">
           ${renderCard('C')}
         </div>
 
         <!-- Arrow down split -->
-        <div class="arrow-down"><i data-lucide="git-fork" class="w-5 h-5 text-amber-400 rotate-180"></i></div>
+        <div class="arrow-down"><i data-lucide="git-fork" class="w-4 h-4 text-amber-400 rotate-180"></i></div>
 
         <!-- LEVEL 5: Прямая модель & Через посадочную -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-lg">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full max-w-md">
           ${renderCard('D1')}
           ${renderCard('D2')}
         </div>
 
         <!-- Arrow down merge -->
-        <div class="arrow-down"><i data-lucide="arrow-down" class="w-5 h-5 text-purple-400"></i></div>
+        <div class="arrow-down"><i data-lucide="arrow-down" class="w-4 h-4 text-purple-400"></i></div>
 
         <!-- LEVEL 6: Ядро Subgraph Group (Бот & Сегментация) -->
-        <div class="w-full max-w-md rounded-3xl p-5 border border-purple-500/20 bg-purple-950/10 backdrop-blur-md relative flex flex-col gap-4">
-          <span class="absolute -top-3 left-6 px-3 py-0.5 text-xs font-black uppercase tracking-widest bg-[#090d16] text-purple-400 border border-purple-500/30 rounded-md">
+        <div class="w-full max-w-sm rounded-2xl p-4 border border-purple-500/20 bg-purple-950/10 backdrop-blur-md relative flex flex-col gap-3">
+          <span class="absolute -top-2.5 left-5 px-2.5 py-0.5 text-[11px] font-black uppercase tracking-widest bg-[#090d16] text-purple-400 border border-purple-500/30 rounded-md">
             Ядро
           </span>
           ${renderCard('E')}
-          <div class="arrow-down flex justify-center"><i data-lucide="arrow-down" class="w-4 h-4 text-purple-400"></i></div>
+          <div class="arrow-down flex justify-center"><i data-lucide="arrow-down" class="w-3.5 h-3.5 text-purple-400"></i></div>
           ${renderCard('F')}
         </div>
 
         <!-- Arrow down split -->
-        <div class="arrow-down"><i data-lucide="git-fork" class="w-5 h-5 text-amber-400 rotate-180"></i></div>
+        <div class="arrow-down"><i data-lucide="git-fork" class="w-4 h-4 text-amber-400 rotate-180"></i></div>
 
         <!-- LEVEL 7: Лёгкий лид-магнит & Углублённый продукт -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-xl">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full max-w-lg">
           ${renderCard('G1')}
           ${renderCard('G2')}
         </div>
 
         <!-- Arrow down merge -->
-        <div class="arrow-down"><i data-lucide="arrow-down" class="w-5 h-5 text-amber-400"></i></div>
+        <div class="arrow-down"><i data-lucide="arrow-down" class="w-4 h-4 text-amber-400"></i></div>
 
         <!-- LEVEL 8: Прогрев -->
-        <div class="w-full sm:w-72">
+        <div class="w-full sm:w-64">
           ${renderCard('H')}
         </div>
 
         <!-- Arrow down -->
-        <div class="arrow-down"><i data-lucide="arrow-down" class="w-5 h-5 text-rose-500"></i></div>
+        <div class="arrow-down"><i data-lucide="arrow-down" class="w-4 h-4 text-rose-500"></i></div>
 
         <!-- LEVEL 9: Продажа -->
-        <div class="w-full sm:w-72">
+        <div class="w-full sm:w-64">
           ${renderCard('I')}
         </div>
 
       </div>
     </main>
 
-    <!-- LARGE EXPLANATION MODAL DIALOG (Readability guaranteed) -->
+    <!-- LARGE EXPLANATION MODAL DIALOG -->
     <div id="node-modal-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-opacity duration-300">
       <div id="node-modal-card" class="glass-card bg-[#0f172a]/98 border border-white/20 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl transform scale-95 transition-transform duration-300 relative text-left">
         
         <button id="modal-close-btn" class="absolute top-6 right-6 p-2 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white transition">
-          <i data-lucide="x" class="w-6 h-6"></i>
+          <i data-lucide="x" class="w-5 h-5"></i>
         </button>
 
         <div class="flex items-center justify-between mb-4 pr-10">
@@ -336,38 +337,38 @@ function renderDashboard() {
           <span id="modal-id-tag" class="text-xs sm:text-sm font-mono text-slate-300 font-bold bg-white/10 px-3 py-1 rounded-md">NODE_ID</span>
         </div>
 
-        <div class="flex items-center gap-4 mb-6 pb-5 border-b border-white/10">
-          <div id="modal-icon-wrapper" class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center flex-shrink-0 text-white shadow-xl">
-            <i id="modal-icon" data-lucide="info" class="w-7 h-7 sm:w-8 sm:h-8"></i>
+        <div class="flex items-center gap-4 mb-5 pb-4 border-b border-white/10">
+          <div id="modal-icon-wrapper" class="w-13 h-13 sm:w-15 sm:h-15 rounded-2xl flex items-center justify-center flex-shrink-0 text-white shadow-xl">
+            <i id="modal-icon" data-lucide="info" class="w-6 h-6 sm:w-7 sm:h-7"></i>
           </div>
           <div>
             <h3 id="modal-title" class="text-xl sm:text-2xl font-black text-white font-heading leading-tight">Название блока</h3>
-            <p id="modal-category" class="text-xs sm:text-sm font-semibold text-indigo-400 mt-1">Подкатегория</p>
+            <p id="modal-category" class="text-xs sm:text-sm font-semibold text-indigo-400 mt-0.5">Подкатегория</p>
           </div>
         </div>
 
-        <div class="space-y-4">
-          <div class="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10">
-            <span class="text-xs font-extrabold text-slate-400 uppercase tracking-wider block mb-1.5 font-heading">КРАТКАЯ СУТЬ:</span>
+        <div class="space-y-3.5">
+          <div class="p-4 sm:p-4.5 rounded-2xl bg-white/5 border border-white/10">
+            <span class="text-xs font-extrabold text-slate-400 uppercase tracking-wider block mb-1 font-heading">КРАТКАЯ СУТЬ:</span>
             <p id="modal-summary" class="text-sm sm:text-base font-semibold text-slate-100 leading-relaxed">Пояснение блока</p>
           </div>
 
-          <div class="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10">
-            <span class="text-xs font-extrabold text-indigo-300 uppercase tracking-wider block mb-1.5 font-heading">ДЕТАЛИ И UX-РОЛЬ:</span>
+          <div class="p-4 sm:p-4.5 rounded-2xl bg-white/5 border border-white/10">
+            <span class="text-xs font-extrabold text-indigo-300 uppercase tracking-wider block mb-1 font-heading">ДЕТАЛИ И UX-РОЛЬ:</span>
             <p id="modal-details" class="text-sm sm:text-base font-medium text-slate-200 leading-relaxed">Подробная информация о работе данного узла воронки.</p>
           </div>
 
-          <div class="p-4 sm:p-5 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-100 shadow-lg">
-            <div class="flex items-center gap-2 font-black text-emerald-400 mb-1.5 text-xs sm:text-sm uppercase tracking-wider font-heading">
-              <i data-lucide="lightbulb" class="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400"></i>
+          <div class="p-4 sm:p-4.5 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-100 shadow-lg">
+            <div class="flex items-center gap-2 font-black text-emerald-400 mb-1 text-xs sm:text-sm uppercase tracking-wider font-heading">
+              <i data-lucide="lightbulb" class="w-4 h-4 sm:w-4.5 sm:h-4.5 text-emerald-400"></i>
               <span>Рекомендация эксперта:</span>
             </div>
             <p id="modal-recommendation" class="text-sm sm:text-base font-medium leading-relaxed text-emerald-100">Практический совет по настройке конверсии.</p>
           </div>
         </div>
 
-        <div class="mt-6 pt-4 border-t border-white/10 flex justify-end">
-          <button id="modal-ok-btn" class="px-7 py-2.5 sm:py-3 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-extrabold rounded-xl shadow-lg transition">
+        <div class="mt-6 pt-3.5 border-t border-white/10 flex justify-end">
+          <button id="modal-ok-btn" class="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-extrabold rounded-xl shadow-lg transition">
             Закрыть
           </button>
         </div>
@@ -382,21 +383,21 @@ function renderDashboard() {
 }
 
 /**
- * Рендер акуратной чистой HTML-карточки для блока воронки
+ * Рендер карточки блока воронки
  */
 function renderCard(id) {
   const data = funnelData[id];
   if (!data) return '';
 
   return `
-    <div data-node-id="${id}" class="funnel-card group relative cursor-pointer p-4 rounded-2xl border transition-all duration-200 text-center flex flex-col items-center justify-center gap-1.5 shadow-lg select-none" style="border-color: ${data.color}; background: linear-gradient(135deg, rgba(15,23,42,0.9) 0%, rgba(30,41,59,0.9) 100%);">
-      <div class="w-8 h-8 rounded-xl flex items-center justify-center text-white shadow-md mb-0.5" style="background-color: ${data.color};">
-        <i data-lucide="${data.icon}" class="w-4 h-4"></i>
+    <div data-node-id="${id}" class="funnel-card group relative cursor-pointer p-3 sm:p-3.5 rounded-xl border transition-all duration-150 text-center flex flex-col items-center justify-center gap-1 shadow-md select-none" style="border-color: ${data.color}; background: linear-gradient(135deg, rgba(15,23,42,0.9) 0%, rgba(30,41,59,0.9) 100%);">
+      <div class="w-7 h-7 rounded-lg flex items-center justify-center text-white shadow mb-0.5" style="background-color: ${data.color};">
+        <i data-lucide="${data.icon}" class="w-3.5 h-3.5"></i>
       </div>
-      <div class="font-extrabold text-white text-base sm:text-lg tracking-tight font-heading leading-snug group-hover:text-indigo-300 transition-colors">
+      <div class="font-extrabold text-white text-sm sm:text-base tracking-tight font-heading leading-tight group-hover:text-indigo-300 transition-colors">
         ${data.title}
       </div>
-      <div class="text-xs text-slate-400 font-medium">
+      <div class="text-[11px] text-slate-400 font-medium">
         ${data.subtitle}
       </div>
     </div>
