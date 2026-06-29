@@ -308,7 +308,7 @@ class I saleStyle;
 
         <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
           <span>Логика и структура воронки полностью сохранены</span>
-          <span class="font-mono text-slate-500">100% Flowchart Compatibility</span>
+          <span class="font-mono text-indigo-400 font-bold bg-indigo-500/10 px-3 py-1 rounded-lg border border-indigo-500/20">v5.0 GIANT FONTS (3.2X Scale)</span>
         </div>
       </section>
     </main>
@@ -434,34 +434,47 @@ function openNodeModal(nodeId) {
  * Настройка взаимодействия со схемой Mermaid
  */
 function setupDiagramInteractivity() {
-  let zoomLevel = 2.4; // 2X Громадный масштаб
+  let zoomLevel = 3.2; // 3.2X Громадный масштаб
   const viewport = document.getElementById('diagram-viewport');
   if (viewport) viewport.style.transform = `scale(${zoomLevel})`;
   
   document.getElementById('btn-zoom-in')?.addEventListener('click', () => {
-    if (zoomLevel < 4.0) {
-      zoomLevel += 0.35;
+    if (zoomLevel < 6.0) {
+      zoomLevel += 0.4;
       viewport.style.transform = `scale(${zoomLevel})`;
     }
   });
 
   document.getElementById('btn-zoom-out')?.addEventListener('click', () => {
     if (zoomLevel > 1.0) {
-      zoomLevel -= 0.35;
+      zoomLevel -= 0.4;
       viewport.style.transform = `scale(${zoomLevel})`;
     }
   });
 
   document.getElementById('btn-reset-zoom')?.addEventListener('click', () => {
-    zoomLevel = 2.4;
-    viewport.style.transform = `scale(2.4)`;
+    zoomLevel = 3.2;
+    viewport.style.transform = `scale(3.2)`;
   });
 
   const attemptBind = () => {
     bindMermaidNodeEvents();
+    enforceGiantSvgFonts();
   };
   setTimeout(attemptBind, 300);
   setTimeout(attemptBind, 800);
+  setTimeout(attemptBind, 1500);
+}
+
+/**
+ * Принудительное увеличение всех SVG надписей в DOM на 42px
+ */
+function enforceGiantSvgFonts() {
+  const svgElements = document.querySelectorAll('.mermaid svg text, .mermaid svg tspan, .mermaid svg span');
+  svgElements.forEach(el => {
+    el.style.fontSize = '42px';
+    el.style.fontWeight = '900';
+  });
 }
 
 /**
@@ -529,13 +542,13 @@ document.addEventListener('DOMContentLoaded', () => {
       theme: 'dark',
       securityLevel: 'loose',
       themeVariables: {
-        fontSize: '28px',
+        fontSize: '42px',
         fontFamily: 'Plus Jakarta Sans, Inter, sans-serif',
-        nodePadding: '20px'
+        nodePadding: '30px'
       },
       flowchart: {
         curve: 'basis',
-        htmlLabels: false, // Отключаем htmlLabels для 100% SVG масштабирования текста
+        htmlLabels: false,
         useMaxWidth: false
       }
     });

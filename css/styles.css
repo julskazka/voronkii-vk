@@ -1,5 +1,5 @@
 /* ===========================================
-   styles.css — Modern SaaS Dashboard Theme (HUGE SVG DIAGRAM FONTS)
+   styles.css — Modern SaaS Dashboard Theme (EXTREME 42PX SVG FONTS)
    =========================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap');
@@ -68,12 +68,12 @@ h1, h2, h3, h4, .font-heading {
   background: rgba(255, 255, 255, 0.5);
 }
 
-/* Mermaid Customization — HUGE SVG SCALE & MASSIVE FONTS */
+/* Mermaid Customization — EXTREME SCALE & 42PX FONTS */
 .mermaid-wrapper {
   position: relative;
   width: 100%;
   overflow-x: auto;
-  padding: 60px 30px;
+  padding: 80px 40px;
   cursor: grab;
 }
 .mermaid-wrapper:active {
@@ -87,16 +87,16 @@ h1, h2, h3, h4, .font-heading {
 }
 
 .mermaid svg {
-  min-width: 1500px !important;
+  min-width: 2000px !important;
   width: 100% !important;
-  max-width: 2200px !important;
+  max-width: 2800px !important;
   height: auto !important;
   margin: 0 auto;
   display: block;
   font-family: 'Plus Jakarta Sans', sans-serif !important;
 }
 
-/* UNIVERSAL SVG TEXT OVERRIDE — FORCES MASSIVE FONT SIZE FOR ALL DIAGRAM NODES */
+/* EXTREME SVG TEXT OVERRIDE — FORCES MASSIVE 42PX FONT SIZE FOR ALL DIAGRAM NODES */
 .mermaid svg text,
 .mermaid svg tspan,
 .mermaid svg .nodeLabel,
@@ -104,7 +104,7 @@ h1, h2, h3, h4, .font-heading {
 .mermaid svg g.label text,
 .mermaid svg foreignObject div,
 .mermaid svg foreignObject span {
-  font-size: 32px !important;
+  font-size: 42px !important;
   font-weight: 900 !important;
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   dominant-baseline: middle !important;
@@ -115,9 +115,9 @@ h1, h2, h3, h4, .font-heading {
 .mermaid .cluster rect {
   fill: rgba(15, 23, 42, 0.65) !important;
   stroke: rgba(255, 255, 255, 0.25) !important;
-  stroke-width: 4px !important;
-  rx: 32px !important;
-  ry: 32px !important;
+  stroke-width: 5px !important;
+  rx: 40px !important;
+  ry: 40px !important;
   filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.5));
 }
 
@@ -127,7 +127,7 @@ h1, h2, h3, h4, .font-heading {
   fill: #f1f5f9 !important;
   color: #f1f5f9 !important;
   font-weight: 900 !important;
-  font-size: 28px !important;
+  font-size: 38px !important;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -135,20 +135,20 @@ h1, h2, h3, h4, .font-heading {
 /* Smooth Curved Arrow Links */
 .mermaid .edgePath .path {
   stroke: #94a3b8 !important;
-  stroke-width: 8px !important;
+  stroke-width: 10px !important;
   transition: all 0.3s ease;
 }
 
 .mermaid .edgePath .path:hover {
   stroke: #38bdf8 !important;
-  stroke-width: 12px !important;
-  filter: drop-shadow(0 0 16px rgba(56, 189, 248, 0.9));
+  stroke-width: 15px !important;
+  filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.9));
 }
 
 .mermaid .marker {
   fill: #94a3b8 !important;
   stroke: #94a3b8 !important;
-  transform: scale(2.2);
+  transform: scale(2.8);
 }
 
 /* Custom Node Styles */
@@ -157,14 +157,14 @@ h1, h2, h3, h4, .font-heading {
 .mermaid .node circle,
 .mermaid .node div {
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease, filter 0.25s ease !important;
-  rx: 24px !important;
-  ry: 24px !important;
-  min-height: 90px !important;
+  rx: 28px !important;
+  ry: 28px !important;
+  min-height: 110px !important;
 }
 
 .mermaid .node:hover {
   filter: brightness(1.35) contrast(1.1) !important;
-  transform: translateY(-6px) scale(1.06);
+  transform: translateY(-8px) scale(1.07);
   cursor: pointer;
 }
 
@@ -172,8 +172,8 @@ h1, h2, h3, h4, .font-heading {
 .traffic-style rect, .traffic-style polygon, .traffic-style div {
   fill: #064e3b !important;
   stroke: var(--cat-traffic) !important;
-  stroke-width: 5px !important;
-  filter: drop-shadow(0 12px 28px var(--cat-traffic-glow)) !important;
+  stroke-width: 6px !important;
+  filter: drop-shadow(0 14px 32px var(--cat-traffic-glow)) !important;
 }
 .traffic-style label, .traffic-style span, .traffic-style text, .traffic-style tspan {
   fill: #ecfdf5 !important;
@@ -183,8 +183,8 @@ h1, h2, h3, h4, .font-heading {
 .vk-style rect, .vk-style polygon, .vk-style div {
   fill: #1e3a8a !important;
   stroke: var(--cat-vk) !important;
-  stroke-width: 5px !important;
-  filter: drop-shadow(0 12px 28px var(--cat-vk-glow)) !important;
+  stroke-width: 6px !important;
+  filter: drop-shadow(0 14px 32px var(--cat-vk-glow)) !important;
 }
 .vk-style label, .vk-style span, .vk-style text, .vk-style tspan {
   fill: #eff6ff !important;
@@ -194,8 +194,8 @@ h1, h2, h3, h4, .font-heading {
 .bot-style rect, .bot-style polygon, .bot-style div {
   fill: #4c1d95 !important;
   stroke: var(--cat-bot) !important;
-  stroke-width: 5px !important;
-  filter: drop-shadow(0 12px 28px var(--cat-bot-glow)) !important;
+  stroke-width: 6px !important;
+  filter: drop-shadow(0 14px 32px var(--cat-bot-glow)) !important;
 }
 .bot-style label, .bot-style span, .bot-style text, .bot-style tspan {
   fill: #f5f3ff !important;
@@ -205,8 +205,8 @@ h1, h2, h3, h4, .font-heading {
 .seg-style rect, .seg-style polygon, .seg-style div {
   fill: #78350f !important;
   stroke: var(--cat-seg) !important;
-  stroke-width: 5px !important;
-  filter: drop-shadow(0 12px 28px var(--cat-seg-glow)) !important;
+  stroke-width: 6px !important;
+  filter: drop-shadow(0 14px 32px var(--cat-seg-glow)) !important;
 }
 .seg-style label, .seg-style span, .seg-style text, .seg-style tspan {
   fill: #fffbeb !important;
@@ -216,8 +216,8 @@ h1, h2, h3, h4, .font-heading {
 .sale-style rect, .sale-style polygon, .sale-style div {
   fill: #831843 !important;
   stroke: var(--cat-sale) !important;
-  stroke-width: 6px !important;
-  filter: drop-shadow(0 12px 36px var(--cat-sale-glow)) !important;
+  stroke-width: 8px !important;
+  filter: drop-shadow(0 14px 40px var(--cat-sale-glow)) !important;
   animation: pulseGlow 2.5s infinite alternate ease-in-out;
 }
 .sale-style label, .sale-style span, .sale-style text, .sale-style tspan {
@@ -227,16 +227,16 @@ h1, h2, h3, h4, .font-heading {
 
 @keyframes pulseGlow {
   0% {
-    filter: drop-shadow(0 12px 24px rgba(239, 68, 68, 0.4));
+    filter: drop-shadow(0 14px 28px rgba(239, 68, 68, 0.4));
   }
   100% {
-    filter: drop-shadow(0 12px 48px rgba(239, 68, 68, 0.95));
+    filter: drop-shadow(0 14px 50px rgba(239, 68, 68, 0.95));
   }
 }
 
 /* Mobile responsive fixes */
 @media (max-width: 768px) {
   .mermaid svg {
-    min-width: 1200px !important;
+    min-width: 1400px !important;
   }
 }
