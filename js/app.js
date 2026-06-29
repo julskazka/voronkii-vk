@@ -1,10 +1,11 @@
 // js/app.js
 import { initIcons } from './utils.js';
 
-// Данные для каждого узла воронки (Подробная информация в модальном окне)
+// База данных для каждого блока воронки
 const funnelData = {
   'T1': {
-    title: 'Таргетированная реклама',
+    title: 'Реклама',
+    subtitle: 'Таргет VK Ads',
     category: 'Источники трафика',
     color: '#10b981',
     badge: 'Трафик',
@@ -14,7 +15,8 @@ const funnelData = {
     recommendation: 'Используйте динамические креативы и сегментируйте аудитории по боли.'
   },
   'T2': {
-    title: 'Блогеры & Инфлюенсеры',
+    title: 'Блогеры',
+    subtitle: 'Инфлюенс-маркетинг',
     category: 'Источники трафика',
     color: '#10b981',
     badge: 'Трафик',
@@ -24,7 +26,8 @@ const funnelData = {
     recommendation: 'Проверяйте вовлеченность (ER) паблика и используйте персональные промокоды.'
   },
   'T3': {
-    title: 'Органический трафик',
+    title: 'Органика',
+    subtitle: 'SEO & VK Клипы',
     category: 'Источники трафика',
     color: '#10b981',
     badge: 'Трафик',
@@ -34,7 +37,8 @@ const funnelData = {
     recommendation: 'Публикуйте от 3 до 5 Клипов в неделю с призывом забрать бонус в шапке профиля.'
   },
   'T4': {
-    title: 'Посевы в пабликах',
+    title: 'Посевы',
+    subtitle: 'Посты в пабликах',
     category: 'Источники трафика',
     color: '#10b981',
     badge: 'Трафик',
@@ -44,7 +48,8 @@ const funnelData = {
     recommendation: 'Анализируйте часовой график активности сообществ перед выходом поста.'
   },
   'A': {
-    title: 'Центральный хаб Трафика',
+    title: 'Трафик',
+    subtitle: 'Центральный хаб',
     category: 'Точка сбора',
     color: '#10b981',
     badge: 'Главный узел',
@@ -55,6 +60,7 @@ const funnelData = {
   },
   'B': {
     title: 'VK входная оболочка',
+    subtitle: 'Упаковка группы',
     category: 'VK система',
     color: '#0077ff',
     badge: 'VK Экосистема',
@@ -64,7 +70,8 @@ const funnelData = {
     recommendation: 'Используйте яркие динамические обложки и лаконичные кнопки меню.'
   },
   'C': {
-    title: 'Точка входа (Распределение)',
+    title: 'Вход',
+    subtitle: 'Точка распределения',
     category: 'Логический шлюз',
     color: '#f59e0b',
     badge: 'Развилка',
@@ -74,7 +81,8 @@ const funnelData = {
     recommendation: 'Тестируйте A/B сплит для сравнения конверсий обоих путей.'
   },
   'D1': {
-    title: 'Прямая модель воронки',
+    title: 'Прямая модель',
+    subtitle: 'Прямой чат с ботом',
     category: 'Сегментация',
     color: '#f59e0b',
     badge: 'Прямой путь',
@@ -84,7 +92,8 @@ const funnelData = {
     recommendation: 'Используйте короткие кодовые слова в рекламе (например, "СТАРТ").'
   },
   'D2': {
-    title: 'Через посадочную страницу',
+    title: 'Через посадочную',
+    subtitle: 'Подписная Senler / Mini App',
     category: 'Сегментация',
     color: '#f59e0b',
     badge: 'Лендинг',
@@ -94,7 +103,8 @@ const funnelData = {
     recommendation: 'Размещайте отзывы и видео-превью прямо на посадочной странице.'
   },
   'E': {
-    title: 'Чат-бот (Ядро воронки)',
+    title: 'Бот',
+    subtitle: 'Приветственный сценарий',
     category: 'Автоматизация',
     color: '#8b5cf6',
     badge: 'Ядро системы',
@@ -104,7 +114,8 @@ const funnelData = {
     recommendation: 'Делайте сообщения короткими (до 300 символов) и используйте переменные имени.'
   },
   'F': {
-    title: 'Сегментация пользователей',
+    title: 'Сегментация',
+    subtitle: 'Квалификация лида',
     category: 'Автоматизация',
     color: '#8b5cf6',
     badge: 'Анализ',
@@ -115,6 +126,7 @@ const funnelData = {
   },
   'G1': {
     title: 'Лёгкий лид-магнит',
+    subtitle: 'Быстрый бонус / Чек-лист',
     category: 'Продукт',
     color: '#f59e0b',
     badge: 'Быстрая польза',
@@ -125,6 +137,7 @@ const funnelData = {
   },
   'G2': {
     title: 'Углублённый продукт',
+    subtitle: 'Мини-курс / Вебинар',
     category: 'Продукт',
     color: '#f59e0b',
     badge: 'Контент-погружение',
@@ -134,7 +147,8 @@ const funnelData = {
     recommendation: 'Разбивайте мини-курс на короткие уроки по 5 минут.'
   },
   'H': {
-    title: 'Контентный Прогрев',
+    title: 'Прогрев',
+    subtitle: 'Автоворонка писем',
     category: 'Воронка продаж',
     color: '#f59e0b',
     badge: 'Автоворонка',
@@ -144,8 +158,8 @@ const funnelData = {
     recommendation: 'Используйте элемент сторителлинга и ограничивайте время действия спецпредложений.'
   },
   'I': {
-    title: 'Финал: Продажа & Конверсия',
-    category: 'Конверсия',
+    title: 'Продажа',
+    subtitle: 'Конверсия & Оплата',
     color: '#ef4444',
     badge: 'Финальный этап',
     icon: 'shopping-bag',
@@ -156,214 +170,205 @@ const funnelData = {
 };
 
 /**
- * Рендер главного интерфейса на всю ширину с модальным окном
+ * Рендер интерфейса воронки с помощью чистых аккуратных HTML-карточек
  */
 function renderDashboard() {
   const appEl = document.getElementById('app');
   
   appEl.innerHTML = `
-    <!-- Top Bar Navigation -->
-    <header class="border-b border-white/10 bg-[#0d1322]/90 backdrop-blur-md sticky top-0 z-40">
-      <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <!-- Header -->
+    <header class="border-b border-white/10 bg-[#0d1322]/90 backdrop-blur-md shrink-0">
+      <div class="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
         <div class="flex items-center space-x-3">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-vk-blue p-0.5 flex items-center justify-center shadow-lg shadow-indigo-500/20">
-            <div class="w-full h-full bg-[#090d16] rounded-[10px] flex items-center justify-center">
-              <i data-lucide="workflow" class="w-5 h-5 text-indigo-400"></i>
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-600 to-vk-blue p-0.5 flex items-center justify-center shadow">
+            <div class="w-full h-full bg-[#090d16] rounded-[6px] flex items-center justify-center">
+              <i data-lucide="workflow" class="w-4 h-4 text-indigo-400"></i>
             </div>
           </div>
-          <div>
-            <div class="flex items-center gap-2">
-              <h1 class="text-base sm:text-xl font-extrabold tracking-tight text-white font-heading">VK-ВОРОНКА</h1>
-              <span class="px-2.5 py-0.5 text-[10px] font-bold tracking-wide uppercase bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 rounded-full">Interactive Fullscreen Map</span>
-            </div>
-            <p class="text-xs text-slate-400 hidden sm:block">Интерактивная карта воронки конверсии • Нажмите на любой блок для детальной информации</p>
+          <div class="flex items-center gap-2">
+            <h1 class="text-base font-extrabold tracking-tight text-white font-heading">VK-ВОРОНКА</h1>
+            <span class="px-2.5 py-0.5 text-[10px] font-bold tracking-wide uppercase bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 rounded-full">Neat Pixel-Perfect Board</span>
           </div>
         </div>
 
-        <!-- Toolbar Buttons -->
-        <div class="flex items-center gap-2">
-          <button id="btn-zoom-in" title="Увеличить" class="btn-press p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition">
-            <i data-lucide="zoom-in" class="w-5 h-5"></i>
-          </button>
-          <button id="btn-zoom-out" title="Уменьшить" class="btn-press p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-white transition">
-            <i data-lucide="zoom-out" class="w-5 h-5"></i>
-          </button>
-          <button id="btn-reset-zoom" title="Сбросить масштаб" class="btn-press px-4 py-2 text-xs font-semibold rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white shadow-md shadow-indigo-600/30 transition flex items-center gap-2">
-            <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
-            <span>Сбросить масштаб</span>
-          </button>
+        <div class="text-xs text-slate-400 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Нажмите на любой блок для просмотра пояснений</span>
         </div>
       </div>
     </header>
 
-    <!-- Main Content Fullwidth Container -->
-    <main class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <!-- Main Board Workspace -->
+    <main class="flex-1 max-w-6xl w-full mx-auto px-4 py-6 flex flex-col items-center justify-start overflow-y-auto">
       
-      <!-- Legend Bar -->
-      <div class="mb-6 flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl glass-card">
-        <div class="flex items-center gap-2">
+      <!-- Legend -->
+      <div class="w-full max-w-4xl mb-6 flex flex-wrap items-center justify-between gap-3 p-3 rounded-2xl glass-card text-xs">
+        <div class="flex items-center gap-2 font-bold uppercase text-slate-300 tracking-wider">
           <i data-lucide="layers" class="w-4 h-4 text-indigo-400"></i>
-          <span class="text-xs font-bold uppercase text-slate-300 tracking-wider">Легенда схемы:</span>
+          <span>Легенда:</span>
         </div>
-        <div class="flex flex-wrap items-center gap-3">
-          <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span> Источники Трафика
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="px-3 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-semibold flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Трафик
           </span>
-          <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">
-            <span class="w-2.5 h-2.5 rounded-full bg-blue-400"></span> VK Входная Оболочка
+          <span class="px-3 py-1 rounded-lg bg-blue-500/10 text-blue-400 border border-blue-500/20 font-semibold flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-blue-400"></span> VK Оболочка
           </span>
-          <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20">
-            <span class="w-2.5 h-2.5 rounded-full bg-purple-400"></span> Чат-бот & Ядро
+          <span class="px-3 py-1 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20 font-semibold flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-purple-400"></span> Бот / Ядро
           </span>
-          <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">
-            <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span> Сегментация & Прогрев
+          <span class="px-3 py-1 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20 font-semibold flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-amber-400"></span> Сегментация
           </span>
-          <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-rose-500/10 text-rose-400 border border-rose-500/30 shadow-sm shadow-rose-500/20">
-            <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping"></span> Финальные Продажи
+          <span class="px-3 py-1 rounded-lg bg-rose-500/10 text-rose-400 border border-rose-500/30 font-semibold flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-rose-500"></span> Продажи
           </span>
         </div>
       </div>
 
-      <!-- Large Diagram Canvas -->
-      <section class="glass-card rounded-3xl p-6 sm:p-10 relative overflow-hidden min-h-[750px] flex flex-col justify-between border border-white/10 shadow-2xl">
+      <!-- Funnel Board Flow -->
+      <div class="w-full max-w-4xl flex flex-col items-center gap-5 relative py-2">
         
-        <div class="flex items-center justify-between mb-4 pb-4 border-b border-white/10">
-          <div class="flex items-center gap-3">
-            <span class="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></span>
-            <h2 class="text-base font-bold text-slate-100 font-heading">Карта Воронки Конверсии (Крупный вид)</h2>
-          </div>
-          <div class="px-3 py-1 bg-indigo-500/10 border border-indigo-500/20 rounded-xl text-indigo-300 text-xs font-medium flex items-center gap-2">
-            <i data-lucide="pointer" class="w-4 h-4 animate-bounce text-indigo-400"></i>
-            <span>Нажмите на любой узел для просмотра информации</span>
-          </div>
-        </div>
-
-        <!-- Mermaid Render Viewport -->
-        <div id="diagram-viewport" class="mermaid-wrapper flex-1 flex items-center justify-center transition-transform duration-300 origin-center py-8">
-          <div class="mermaid">
-flowchart TD
-
-subgraph T[Источники трафика]
-T1[Реклама]
-T2[Блогеры]
-T3[Органика]
-T4[Посевы]
-end
-
-A[Трафик]
-B[VK входная оболочка]
-C{Вход}
-D1[Прямая модель]
-D2[Через посадочную]
-
-subgraph BOT[Ядро]
-E[Бот]
-F[Сегментация]
-end
-
-G1[Лёгкий лид-магнит]
-G2[Углублённый продукт]
-H[Прогрев]
-I[Продажа]
-
-subgraph VK[VK система]
-B
-end
-
-T1 --> A
-T2 --> A
-T3 --> A
-T4 --> A
-
-A --> B
-B --> C
-C --> D1
-C --> D2
-
-D1 --> E
-D2 --> E
-
-E --> F
-F --> G1
-F --> G2
-
-G1 --> H
-G2 --> H
-
-H --> I
-
-classDef trafficStyle fill:#064e3b,stroke:#10b981,stroke-width:2.5px,color:#fff;
-classDef vkStyle fill:#1e3a8a,stroke:#0077ff,stroke-width:2.5px,color:#fff;
-classDef botStyle fill:#4c1d95,stroke:#8b5cf6,stroke-width:2.5px,color:#fff;
-classDef segStyle fill:#78350f,stroke:#f59e0b,stroke-width:2.5px,color:#fff;
-classDef saleStyle fill:#831843,stroke:#ef4444,stroke-width:3px,color:#fff;
-
-class T1,T2,T3,T4,A trafficStyle;
-class B,VK vkStyle;
-class E,F,BOT botStyle;
-class C,D1,D2,G1,G2,H segStyle;
-class I saleStyle;
+        <!-- LEVEL 1: Источники Трафика Subgraph Group -->
+        <div class="w-full rounded-3xl p-5 border border-emerald-500/20 bg-emerald-950/10 backdrop-blur-md relative">
+          <span class="absolute -top-3 left-6 px-3 py-0.5 text-xs font-black uppercase tracking-widest bg-[#090d16] text-emerald-400 border border-emerald-500/30 rounded-md">
+            Источники трафика
+          </span>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            ${renderCard('T1')}
+            ${renderCard('T2')}
+            ${renderCard('T3')}
+            ${renderCard('T4')}
           </div>
         </div>
 
-        <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
-          <span>Логика и структура воронки полностью сохранены</span>
-          <span class="font-mono text-slate-500">100% Flowchart Compatibility</span>
+        <!-- Arrow down -->
+        <div class="arrow-down"><i data-lucide="arrow-down" class="w-5 h-5 text-emerald-400"></i></div>
+
+        <!-- LEVEL 2: Трафик -->
+        <div class="w-full sm:w-72">
+          ${renderCard('A')}
         </div>
-      </section>
+
+        <!-- Arrow down -->
+        <div class="arrow-down"><i data-lucide="arrow-down" class="w-5 h-5 text-blue-400"></i></div>
+
+        <!-- LEVEL 3: VK система Subgraph Group -->
+        <div class="w-full max-w-md rounded-3xl p-5 border border-blue-500/20 bg-blue-950/10 backdrop-blur-md relative">
+          <span class="absolute -top-3 left-6 px-3 py-0.5 text-xs font-black uppercase tracking-widest bg-[#090d16] text-blue-400 border border-blue-500/30 rounded-md">
+            VK система
+          </span>
+          <div class="w-full">
+            ${renderCard('B')}
+          </div>
+        </div>
+
+        <!-- Arrow down -->
+        <div class="arrow-down"><i data-lucide="arrow-down" class="w-5 h-5 text-amber-400"></i></div>
+
+        <!-- LEVEL 4: Вход (Развилка) -->
+        <div class="w-full sm:w-64">
+          ${renderCard('C')}
+        </div>
+
+        <!-- Arrow down split -->
+        <div class="arrow-down"><i data-lucide="git-fork" class="w-5 h-5 text-amber-400 rotate-180"></i></div>
+
+        <!-- LEVEL 5: Прямая модель & Через посадочную -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-lg">
+          ${renderCard('D1')}
+          ${renderCard('D2')}
+        </div>
+
+        <!-- Arrow down merge -->
+        <div class="arrow-down"><i data-lucide="arrow-down" class="w-5 h-5 text-purple-400"></i></div>
+
+        <!-- LEVEL 6: Ядро Subgraph Group (Бот & Сегментация) -->
+        <div class="w-full max-w-md rounded-3xl p-5 border border-purple-500/20 bg-purple-950/10 backdrop-blur-md relative flex flex-col gap-4">
+          <span class="absolute -top-3 left-6 px-3 py-0.5 text-xs font-black uppercase tracking-widest bg-[#090d16] text-purple-400 border border-purple-500/30 rounded-md">
+            Ядро
+          </span>
+          ${renderCard('E')}
+          <div class="arrow-down flex justify-center"><i data-lucide="arrow-down" class="w-4 h-4 text-purple-400"></i></div>
+          ${renderCard('F')}
+        </div>
+
+        <!-- Arrow down split -->
+        <div class="arrow-down"><i data-lucide="git-fork" class="w-5 h-5 text-amber-400 rotate-180"></i></div>
+
+        <!-- LEVEL 7: Лёгкий лид-магнит & Углублённый продукт -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-xl">
+          ${renderCard('G1')}
+          ${renderCard('G2')}
+        </div>
+
+        <!-- Arrow down merge -->
+        <div class="arrow-down"><i data-lucide="arrow-down" class="w-5 h-5 text-amber-400"></i></div>
+
+        <!-- LEVEL 8: Прогрев -->
+        <div class="w-full sm:w-72">
+          ${renderCard('H')}
+        </div>
+
+        <!-- Arrow down -->
+        <div class="arrow-down"><i data-lucide="arrow-down" class="w-5 h-5 text-rose-500"></i></div>
+
+        <!-- LEVEL 9: Продажа -->
+        <div class="w-full sm:w-72">
+          ${renderCard('I')}
+        </div>
+
+      </div>
     </main>
 
-    <!-- Modal Dialog Popup (Show information on node click) -->
-    <div id="node-modal-backdrop" class="fixed inset-0 bg-black/75 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
-      <div id="node-modal-card" class="glass-card bg-[#0f172a]/95 border border-white/15 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl transform scale-95 transition-transform duration-300 relative text-left">
+    <!-- LARGE EXPLANATION MODAL DIALOG (Readability guaranteed) -->
+    <div id="node-modal-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-opacity duration-300">
+      <div id="node-modal-card" class="glass-card bg-[#0f172a]/98 border border-white/20 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl transform scale-95 transition-transform duration-300 relative text-left">
         
-        <!-- Close Button -->
-        <button id="modal-close-btn" class="absolute top-5 right-5 p-2 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition">
-          <i data-lucide="x" class="w-5 h-5"></i>
+        <button id="modal-close-btn" class="absolute top-6 right-6 p-2 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white transition">
+          <i data-lucide="x" class="w-6 h-6"></i>
         </button>
 
-        <!-- Header info -->
-        <div class="flex items-center justify-between mb-4 pr-8">
-          <span id="modal-badge" class="px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-lg bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+        <div class="flex items-center justify-between mb-4 pr-10">
+          <span id="modal-badge" class="px-3.5 py-1 text-xs sm:text-sm font-extrabold uppercase tracking-wider rounded-lg bg-indigo-500/25 text-indigo-300 border border-indigo-500/40">
             Категория
           </span>
-          <span id="modal-id-tag" class="text-xs font-mono text-slate-400 font-bold bg-white/5 px-2 py-1 rounded-md">NODE_ID</span>
+          <span id="modal-id-tag" class="text-xs sm:text-sm font-mono text-slate-300 font-bold bg-white/10 px-3 py-1 rounded-md">NODE_ID</span>
         </div>
 
-        <div class="flex items-start gap-4 mb-6">
-          <div id="modal-icon-wrapper" class="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 text-white shadow-xl shadow-black/40">
-            <i id="modal-icon" data-lucide="info" class="w-6 h-6"></i>
+        <div class="flex items-center gap-4 mb-6 pb-5 border-b border-white/10">
+          <div id="modal-icon-wrapper" class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center flex-shrink-0 text-white shadow-xl">
+            <i id="modal-icon" data-lucide="info" class="w-7 h-7 sm:w-8 sm:h-8"></i>
           </div>
           <div>
-            <h3 id="modal-title" class="text-xl sm:text-2xl font-extrabold text-white font-heading leading-tight">Название блока</h3>
-            <p id="modal-category" class="text-xs font-medium text-slate-400 mt-0.5">Подкатегория</p>
+            <h3 id="modal-title" class="text-xl sm:text-2xl font-black text-white font-heading leading-tight">Название блока</h3>
+            <p id="modal-category" class="text-xs sm:text-sm font-semibold text-indigo-400 mt-1">Подкатегория</p>
           </div>
         </div>
 
-        <!-- Body Details -->
-        <div class="space-y-4 text-xs sm:text-sm">
-          <div class="p-4 rounded-2xl bg-white/5 border border-white/5">
-            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Краткая суть:</span>
-            <p id="modal-summary" class="text-slate-200 leading-relaxed font-normal">Пояснение блока</p>
+        <div class="space-y-4">
+          <div class="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10">
+            <span class="text-xs font-extrabold text-slate-400 uppercase tracking-wider block mb-1.5 font-heading">КРАТКАЯ СУТЬ:</span>
+            <p id="modal-summary" class="text-sm sm:text-base font-semibold text-slate-100 leading-relaxed">Пояснение блока</p>
           </div>
 
-          <div class="p-4 rounded-2xl bg-white/5 border border-white/5">
-            <span class="text-[11px] font-bold text-indigo-300 uppercase tracking-wider block mb-1">Детали и UX-роль:</span>
-            <p id="modal-details" class="text-slate-300 leading-relaxed">Подробная информация о работе данного узла воронки.</p>
+          <div class="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10">
+            <span class="text-xs font-extrabold text-indigo-300 uppercase tracking-wider block mb-1.5 font-heading">ДЕТАЛИ И UX-РОЛЬ:</span>
+            <p id="modal-details" class="text-sm sm:text-base font-medium text-slate-200 leading-relaxed">Подробная информация о работе данного узла воронки.</p>
           </div>
 
-          <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-200">
-            <div class="flex items-center gap-2 font-bold text-emerald-400 mb-1">
-              <i data-lucide="lightbulb" class="w-4 h-4"></i>
+          <div class="p-4 sm:p-5 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-100 shadow-lg">
+            <div class="flex items-center gap-2 font-black text-emerald-400 mb-1.5 text-xs sm:text-sm uppercase tracking-wider font-heading">
+              <i data-lucide="lightbulb" class="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400"></i>
               <span>Рекомендация эксперта:</span>
             </div>
-            <p id="modal-recommendation" class="leading-relaxed">Практический совет по настройке конверсии.</p>
+            <p id="modal-recommendation" class="text-sm sm:text-base font-medium leading-relaxed text-emerald-100">Практический совет по настройке конверсии.</p>
           </div>
         </div>
 
         <div class="mt-6 pt-4 border-t border-white/10 flex justify-end">
-          <button id="modal-ok-btn" class="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold rounded-xl shadow-lg shadow-indigo-600/30 transition">
-            Понятно
+          <button id="modal-ok-btn" class="px-7 py-2.5 sm:py-3 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-extrabold rounded-xl shadow-lg transition">
+            Закрыть
           </button>
         </div>
 
@@ -372,13 +377,41 @@ class I saleStyle;
   `;
 
   initIcons();
-  setupDiagramInteractivity();
   setupModalEvents();
+  setupCardClickEvents();
 }
 
 /**
- * Настройка событий модального окна
+ * Рендер акуратной чистой HTML-карточки для блока воронки
  */
+function renderCard(id) {
+  const data = funnelData[id];
+  if (!data) return '';
+
+  return `
+    <div data-node-id="${id}" class="funnel-card group relative cursor-pointer p-4 rounded-2xl border transition-all duration-200 text-center flex flex-col items-center justify-center gap-1.5 shadow-lg select-none" style="border-color: ${data.color}; background: linear-gradient(135deg, rgba(15,23,42,0.9) 0%, rgba(30,41,59,0.9) 100%);">
+      <div class="w-8 h-8 rounded-xl flex items-center justify-center text-white shadow-md mb-0.5" style="background-color: ${data.color};">
+        <i data-lucide="${data.icon}" class="w-4 h-4"></i>
+      </div>
+      <div class="font-extrabold text-white text-base sm:text-lg tracking-tight font-heading leading-snug group-hover:text-indigo-300 transition-colors">
+        ${data.title}
+      </div>
+      <div class="text-xs text-slate-400 font-medium">
+        ${data.subtitle}
+      </div>
+    </div>
+  `;
+}
+
+function setupCardClickEvents() {
+  document.querySelectorAll('.funnel-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const id = card.getAttribute('data-node-id');
+      if (id) openNodeModal(id);
+    });
+  });
+}
+
 function setupModalEvents() {
   const backdrop = document.getElementById('node-modal-backdrop');
   const closeBtn = document.getElementById('modal-close-btn');
@@ -399,9 +432,6 @@ function setupModalEvents() {
   });
 }
 
-/**
- * Открытие модального окна с данными узла при клике
- */
 function openNodeModal(nodeId) {
   const data = funnelData[nodeId];
   if (!data) return;
@@ -430,110 +460,6 @@ function openNodeModal(nodeId) {
   card?.classList.remove('scale-95');
 }
 
-/**
- * Настройка взаимодействия со схемой Mermaid
- */
-function setupDiagramInteractivity() {
-  let zoomLevel = 1.15; // По умолчанию крупнее
-  const viewport = document.getElementById('diagram-viewport');
-  if (viewport) viewport.style.transform = `scale(${zoomLevel})`;
-  
-  document.getElementById('btn-zoom-in')?.addEventListener('click', () => {
-    if (zoomLevel < 2.2) {
-      zoomLevel += 0.2;
-      viewport.style.transform = `scale(${zoomLevel})`;
-    }
-  });
-
-  document.getElementById('btn-zoom-out')?.addEventListener('click', () => {
-    if (zoomLevel > 0.7) {
-      zoomLevel -= 0.2;
-      viewport.style.transform = `scale(${zoomLevel})`;
-    }
-  });
-
-  document.getElementById('btn-reset-zoom')?.addEventListener('click', () => {
-    zoomLevel = 1.15;
-    viewport.style.transform = `scale(1.15)`;
-  });
-
-  const attemptBind = () => {
-    bindMermaidNodeEvents();
-  };
-  setTimeout(attemptBind, 300);
-  setTimeout(attemptBind, 800);
-}
-
-/**
- * Извлечение оригинального ID узлаиз DOM элемента Mermaid
- */
-function extractNodeId(nodeEl) {
-  const fullId = nodeEl.id || '';
-  const textContent = nodeEl.textContent ? nodeEl.textContent.trim() : '';
-
-  for (const key of Object.keys(funnelData)) {
-    const parts = fullId.split('-');
-    if (parts.includes(key)) {
-      return key;
-    }
-  }
-
-  for (const [key, item] of Object.entries(funnelData)) {
-    if (textContent.includes(item.title) || textContent.includes(key)) {
-      return key;
-    }
-  }
-
-  if (textContent.includes('Трафик') && !textContent.includes('Источники')) return 'A';
-  if (textContent.includes('оболочка')) return 'B';
-  if (textContent.includes('Вход')) return 'C';
-  if (textContent.includes('Прямая модель')) return 'D1';
-  if (textContent.includes('посадочную')) return 'D2';
-  if (textContent.includes('Бот') && !textContent.includes('Блогеры')) return 'E';
-  if (textContent.includes('Сегментация')) return 'F';
-  if (textContent.includes('Лёгкий')) return 'G1';
-  if (textContent.includes('Углублённый')) return 'G2';
-  if (textContent.includes('Прогрев')) return 'H';
-  if (textContent.includes('Продажа')) return 'I';
-  if (textContent.includes('Реклама')) return 'T1';
-  if (textContent.includes('Блогеры')) return 'T2';
-  if (textContent.includes('Органика')) return 'T3';
-  if (textContent.includes('Посевы')) return 'T4';
-
-  return null;
-}
-
-/**
- * Привязка событий клика к узлам Mermaid SVG (Вызов модального окна)
- */
-function bindMermaidNodeEvents() {
-  const nodes = document.querySelectorAll('.mermaid .node, .mermaid .nodeGroup');
-  
-  nodes.forEach(node => {
-    const nodeId = extractNodeId(node);
-    if (!nodeId || !funnelData[nodeId]) return;
-
-    node.style.cursor = 'pointer';
-
-    node.removeEventListener('click', node._clickHandler);
-    node._clickHandler = () => openNodeModal(nodeId);
-    node.addEventListener('click', node._clickHandler);
-  });
-}
-
-// Запуск приложения
 document.addEventListener('DOMContentLoaded', () => {
-  if (window.mermaid) {
-    window.mermaid.initialize({
-      startOnLoad: true,
-      theme: 'dark',
-      securityLevel: 'loose',
-      flowchart: {
-        curve: 'basis',
-        htmlLabels: true,
-        useMaxWidth: false // Позволяет делать схему крупной
-      }
-    });
-  }
   renderDashboard();
 });

@@ -1,31 +1,14 @@
 /* ===========================================
-   styles.css — Modern SaaS Dashboard Theme (Fullscreen & Popup Modal)
+   styles.css — Modern SaaS Dashboard Theme (Pixel-Perfect HTML Board)
    =========================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap');
 
 :root {
   --color-bg: #090d16;
   --color-surface: rgba(17, 24, 39, 0.85);
-  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border: rgba(255, 255, 255, 0.12);
   --color-text: #f8fafc;
-  --color-muted: #94a3b8;
-  
-  /* Category Colors */
-  --cat-traffic: #10b981;
-  --cat-traffic-glow: rgba(16, 185, 129, 0.35);
-  
-  --cat-vk: #0077ff;
-  --cat-vk-glow: rgba(0, 119, 255, 0.35);
-  
-  --cat-bot: #8b5cf6;
-  --cat-bot-glow: rgba(139, 92, 246, 0.35);
-  
-  --cat-seg: #f59e0b;
-  --cat-seg-glow: rgba(245, 158, 11, 0.35);
-  
-  --cat-sale: #ef4444;
-  --cat-sale-glow: rgba(239, 68, 68, 0.45);
 }
 
 body {
@@ -33,10 +16,10 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
   background-image: 
-    radial-gradient(circle at 20% 20%, rgba(0, 119, 255, 0.09) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.09) 0%, transparent 50%);
+    radial-gradient(circle at 20% 20%, rgba(0, 119, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
   background-attachment: fixed;
-  overflow-x: hidden;
+  min-height: 100vh;
 }
 
 h1, h2, h3, h4, .font-heading {
@@ -46,178 +29,41 @@ h1, h2, h3, h4, .font-heading {
 /* Glassmorphism card */
 .glass-card {
   background: var(--color-surface);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--color-border);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Funnel Cards Styling */
+.funnel-card {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.funnel-card:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.25);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+}
+
+.arrow-down {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
-  height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(15, 23, 42, 0.8);
+  background: rgba(15, 23, 42, 0.9);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.35);
-}
-
-/* Mermaid Customization & SaaS Styling (Large Scale) */
-.mermaid-wrapper {
-  position: relative;
-  width: 100%;
-  overflow-x: auto;
-  padding: 32px 16px;
-  cursor: grab;
-}
-.mermaid-wrapper:active {
-  cursor: grabbing;
-}
-
-.mermaid svg {
-  min-width: 850px !important;
-  height: auto !important;
-  margin: 0 auto;
-  display: block;
-  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
-}
-
-/* Cluster Subgraph styling inside Mermaid SVG */
-.mermaid .cluster rect {
-  fill: rgba(15, 23, 42, 0.5) !important;
-  stroke: rgba(255, 255, 255, 0.12) !important;
-  stroke-width: 2px !important;
-  rx: 20px !important;
-  ry: 20px !important;
-  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
-}
-
-.mermaid .cluster span.nodeLabel {
-  color: #cbd5e1 !important;
-  font-weight: 800 !important;
-  font-size: 14px !important;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-/* Smooth Curved Arrow Links */
-.mermaid .edgePath .path {
-  stroke: #64748b !important;
-  stroke-width: 3px !important;
-  transition: all 0.3s ease;
-}
-
-.mermaid .edgePath .path:hover {
-  stroke: #38bdf8 !important;
-  stroke-width: 4.5px !important;
-  filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.6));
-}
-
-.mermaid .marker {
-  fill: #64748b !important;
-  stroke: #64748b !important;
-  transform: scale(1.2);
-}
-
-/* Custom Node Styles applied via classDef */
-.mermaid .node rect, 
-.mermaid .node polygon, 
-.mermaid .node circle,
-.mermaid .node div {
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease, filter 0.25s ease !important;
-  rx: 14px !important;
-  ry: 14px !important;
-  padding: 10px 18px !important;
-}
-
-.mermaid .node:hover {
-  filter: brightness(1.25) contrast(1.05) !important;
-  transform: translateY(-3px) scale(1.03);
-  cursor: pointer;
-}
-
-/* Node Text Styling */
-.mermaid .node span.nodeLabel {
-  font-size: 15px !important;
-  font-weight: 700 !important;
-  padding: 4px 8px !important;
-}
-
-/* Category Specific Node Styling */
-.traffic-style rect, .traffic-style polygon, .traffic-style div {
-  fill: #064e3b !important;
-  stroke: var(--cat-traffic) !important;
-  stroke-width: 2.5px !important;
-  filter: drop-shadow(0 6px 16px var(--cat-traffic-glow)) !important;
-}
-.traffic-style label, .traffic-style span {
-  color: #ecfdf5 !important;
-  font-weight: 700 !important;
-}
-
-.vk-style rect, .vk-style polygon, .vk-style div {
-  fill: #1e3a8a !important;
-  stroke: var(--cat-vk) !important;
-  stroke-width: 2.5px !important;
-  filter: drop-shadow(0 6px 16px var(--cat-vk-glow)) !important;
-}
-.vk-style label, .vk-style span {
-  color: #eff6ff !important;
-  font-weight: 700 !important;
-}
-
-.bot-style rect, .bot-style polygon, .bot-style div {
-  fill: #4c1d95 !important;
-  stroke: var(--cat-bot) !important;
-  stroke-width: 2.5px !important;
-  filter: drop-shadow(0 6px 16px var(--cat-bot-glow)) !important;
-}
-.bot-style label, .bot-style span {
-  color: #f5f3ff !important;
-  font-weight: 700 !important;
-}
-
-.seg-style rect, .seg-style polygon, .seg-style div {
-  fill: #78350f !important;
-  stroke: var(--cat-seg) !important;
-  stroke-width: 2.5px !important;
-  filter: drop-shadow(0 6px 16px var(--cat-seg-glow)) !important;
-}
-.seg-style label, .seg-style span {
-  color: #fffbeb !important;
-  font-weight: 700 !important;
-}
-
-.sale-style rect, .sale-style polygon, .sale-style div {
-  fill: #831843 !important;
-  stroke: var(--cat-sale) !important;
-  stroke-width: 3px !important;
-  filter: drop-shadow(0 6px 24px var(--cat-sale-glow)) !important;
-  animation: pulseGlow 2.5s infinite alternate ease-in-out;
-}
-.sale-style label, .sale-style span {
-  color: #fff1f2 !important;
-  font-weight: 800 !important;
-}
-
-@keyframes pulseGlow {
-  0% {
-    filter: drop-shadow(0 6px 16px rgba(239, 68, 68, 0.4));
-  }
-  100% {
-    filter: drop-shadow(0 6px 32px rgba(239, 68, 68, 0.9));
-  }
-}
-
-/* Mobile responsive fixes */
-@media (max-width: 768px) {
-  .mermaid svg {
-    min-width: 750px !important;
-  }
+  background: rgba(255, 255, 255, 0.4);
 }
