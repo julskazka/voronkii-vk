@@ -1,5 +1,5 @@
 /* ===========================================
-   styles.css — Modern SaaS Dashboard Theme (NO JITTER & COMPACT FIT)
+   styles.css — Modern SaaS Dashboard Theme (NO ARTIFACTS & CLEAN COMPACT)
    =========================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap');
@@ -51,7 +51,7 @@ h1, h2, h3, h4, .font-heading {
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
-/* Mermaid Customization — NO JITTER & COMPACT FIT */
+/* Mermaid Customization — CLEAN COMPACT FIT & NO ARTIFACTS */
 .mermaid-wrapper {
   position: relative;
   width: 100%;
@@ -72,7 +72,7 @@ h1, h2, h3, h4, .font-heading {
 
 .mermaid svg {
   width: 100% !important;
-  max-width: 800px !important;
+  max-width: 750px !important;
   height: 100% !important;
   max-height: 100% !important;
   margin: 0 auto;
@@ -80,19 +80,22 @@ h1, h2, h3, h4, .font-heading {
   font-family: 'Plus Jakarta Sans', sans-serif !important;
 }
 
-/* EXACT 16PX FONT SIZE FOR PERFECT COMPACT FIT */
-.mermaid svg text,
-.mermaid svg tspan,
-.mermaid svg .nodeLabel,
-.mermaid svg .node label,
-.mermaid svg g.label text,
-.mermaid svg foreignObject div,
-.mermaid svg foreignObject span {
-  font-size: 16px !important;
+/* PREVENT STRAY FLOATING ARTIFACTS */
+.mermaid foreignObject {
+  overflow: visible !important;
+}
+
+.mermaid foreignObject > div {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
   font-weight: 700 !important;
   font-family: 'Plus Jakarta Sans', sans-serif !important;
-  dominant-baseline: middle !important;
-  text-anchor: middle !important;
 }
 
 /* Cluster Subgraph styling inside Mermaid SVG */
@@ -105,12 +108,11 @@ h1, h2, h3, h4, .font-heading {
 }
 
 .mermaid .cluster span.nodeLabel,
-.mermaid .cluster g.label text,
-.mermaid .cluster tspan {
+.mermaid .cluster g.label text {
   fill: #cbd5e1 !important;
   color: #cbd5e1 !important;
   font-weight: 800 !important;
-  font-size: 14px !important;
+  font-size: 13px !important;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -118,24 +120,23 @@ h1, h2, h3, h4, .font-heading {
 /* Smooth Curved Arrow Links */
 .mermaid .edgePath .path {
   stroke: #64748b !important;
-  stroke-width: 3px !important;
+  stroke-width: 2.5px !important;
 }
 
 .mermaid .marker {
   fill: #64748b !important;
   stroke: #64748b !important;
-  transform: scale(1.1);
 }
 
-/* Custom Node Styles — STRICTLY NO TRANSFORM/SCALE TO PREVENT JITTER */
+/* Custom Node Styles — STRICTLY NO TRANSFORM/SCALE TO PREVENT JITTER & ARTIFACTS */
 .mermaid .node rect, 
 .mermaid .node polygon, 
 .mermaid .node circle,
 .mermaid .node div {
   rx: 12px !important;
   ry: 12px !important;
-  min-height: 42px !important;
-  transition: filter 0.15s ease !important; /* ONLY transition filter, NO transform! */
+  min-height: 38px !important;
+  transition: filter 0.15s ease !important;
 }
 
 /* HOVER STRICTLY COLOR ONLY — NO SHAKING/JITTER */
@@ -153,53 +154,33 @@ h1, h2, h3, h4, .font-heading {
   fill: #064e3b !important;
   stroke: var(--cat-traffic) !important;
   stroke-width: 2.5px !important;
-  filter: drop-shadow(0 3px 10px var(--cat-traffic-glow)) !important;
-}
-.traffic-style label, .traffic-style span, .traffic-style text, .traffic-style tspan {
-  fill: #ecfdf5 !important;
-  color: #ecfdf5 !important;
+  filter: drop-shadow(0 3px 8px var(--cat-traffic-glow)) !important;
 }
 
 .vk-style rect, .vk-style polygon, .vk-style div {
   fill: #1e3a8a !important;
   stroke: var(--cat-vk) !important;
   stroke-width: 2.5px !important;
-  filter: drop-shadow(0 3px 10px var(--cat-vk-glow)) !important;
-}
-.vk-style label, .vk-style span, .vk-style text, .vk-style tspan {
-  fill: #eff6ff !important;
-  color: #eff6ff !important;
+  filter: drop-shadow(0 3px 8px var(--cat-vk-glow)) !important;
 }
 
 .bot-style rect, .bot-style polygon, .bot-style div {
   fill: #4c1d95 !important;
   stroke: var(--cat-bot) !important;
   stroke-width: 2.5px !important;
-  filter: drop-shadow(0 3px 10px var(--cat-bot-glow)) !important;
-}
-.bot-style label, .bot-style span, .bot-style text, .bot-style tspan {
-  fill: #f5f3ff !important;
-  color: #f5f3ff !important;
+  filter: drop-shadow(0 3px 8px var(--cat-bot-glow)) !important;
 }
 
 .seg-style rect, .seg-style polygon, .seg-style div {
   fill: #78350f !important;
   stroke: var(--cat-seg) !important;
   stroke-width: 2.5px !important;
-  filter: drop-shadow(0 3px 10px var(--cat-seg-glow)) !important;
-}
-.seg-style label, .seg-style span, .seg-style text, .seg-style tspan {
-  fill: #fffbeb !important;
-  color: #fffbeb !important;
+  filter: drop-shadow(0 3px 8px var(--cat-seg-glow)) !important;
 }
 
 .sale-style rect, .sale-style polygon, .sale-style div {
   fill: #831843 !important;
   stroke: var(--cat-sale) !important;
   stroke-width: 3px !important;
-  filter: drop-shadow(0 3px 12px var(--cat-sale-glow)) !important;
-}
-.sale-style label, .sale-style span, .sale-style text, .sale-style tspan {
-  fill: #fff1f2 !important;
-  color: #fff1f2 !important;
+  filter: drop-shadow(0 3px 10px var(--cat-sale-glow)) !important;
 }
